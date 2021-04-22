@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/static/img/style.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="row">
+    <div class="col m6 offset-m3">
+        <!--  <div><img src="/static/img/banner03.png" alt="banner" class="responsive-img"></div>-->
+        <nav>
+            <div class="nav-wrapper teal" style="text-align: center; padding-right: 35px">
+                <a href="#" class="brand-logo"> ~.~ &nbsp; CONTACTS &nbsp; ~.~ </a>
+            </div>
+        </nav>
+        <div style="height: 10px"></div>
+
+        <h4 style="color: darkgreen">Main Page</h4>
+        <div class="col s12">
+            <div class="input-field col s12">
+                <form class="col s12" action="/contacts/search" method="post">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">blur_on</i>
+
+                        <input id="icon_prefix2" type="text" class="materialize-textarea" name="searchPattern"
+                               placeholder="search for name or lastname"></input></div>
+                    <div class="input-field col s6">
+                        <button class="waves-effect waves-light btn" role="button" name="action"><i
+                                class="material-icons left">search</i>Search
+                        </button>&nbsp;
+                        <a th:href="'/contacts/'" class="waves-effect waves-light btn"><i class="material-icons right">refresh</i>Refresh</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div><a th:href="'/add-contact/'" class="btn-floating btn-large waves-effect waves-light #009688 teal">
+            <i class="material-icons">playlist_add</i></a>
+
+          <!--  <div class="col s12">
+                <div class="row">
+                    <form class="col s12" th:action="@{/contacts/}" th:object="${contacts}" method="post">
+                        <input id="id" name="id" type="hidden" th:field="*{id}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="first-name" type="text" class="validate" th:field="*{name}">
+                                <label for="first-name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="last-name" type="text" class="validate" th:field="*{lastName}">
+                                <label for="last-name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">mail_outline</i>
+                                <input id="email" type="text" class="validate" th:field="*{email}">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="input-field col s6 left">
+                                <i class="material-icons prefix">check</i>
+                                <input id="age" type="number" max="120" min="16" step="1" value="18"
+                                       class="validate"
+                                       th:field="*{age}">
+                                <label for="age">Age</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 right">
+                                <button class="waves-effect waves-light btn" value="Save"><i
+                                        class="material-icons left">save</i>Save
+                                </button> &nbsp;
+                                <a th:href="'/contacts/'" class="waves-effect waves-light btn"><i
+                                        class="material-icons right" th:href="'/contacts/'">cancel</i>Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>-->
+
+        </div>
+
+        <div style="height: 10px"></div>
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <ul class="collection with-header">
+                        <li class="collection-item" th:each="contact: ${contacts}">
+                            <a th:href="'/contacts/'+${contact.id}" class="badge">
+                                <span th:text="${contact.name}" style="color: darkcyan"></span>
+                                <span th:text="${contact.lastName}" style="color: darkcyan"></span></a>
+
+                            <a th:href="'/delete-contact/' +${contact.id}" class="secondary-content">
+                                <i class="material-icons waves-light red-text">delete</i>
+                            </a>
+                            <a th:href="'/edit-contact/' +${contact.id}" class="secondary-content">
+                                <i class="material-icons teal-text">edit</i>&nbsp;&nbsp;&nbsp;
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-copyright" style="text-align: center">
+                <div style="height: 130px"></div>
+                <div class="container" style="color: darkcyan">
+                    <br><br><br>
+                    <!-- <img src="/static/img/line.png" alt="line">-->
+                    <br><br>
+                    © 2021 Copyright TelRan
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
