@@ -36,7 +36,6 @@ public class RestContactController {
         return new ContactDto(contact.getId(), contact.getName(), contact.getLastName(), contact.getAge());
     }
 
-
     @PostMapping
     public ContactDto create(@RequestBody ContactDto contactDto) {
         Contact contact = new Contact();

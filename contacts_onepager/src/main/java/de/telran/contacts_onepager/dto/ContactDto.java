@@ -12,4 +12,7 @@ public class ContactDto {
         this.lastName = lastName;
         this.age = age;
     }
+
+    public ContactDto() {
+    }
 }
