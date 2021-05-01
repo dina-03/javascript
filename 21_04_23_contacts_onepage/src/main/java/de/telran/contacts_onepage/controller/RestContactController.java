@@ -29,7 +29,7 @@ public class RestContactController {
         return contacts.stream()
                 .map(contact -> new ContactDto(contact.getId(),
                         contact.getName(),
-                        contact.getName(),
+                        contact.getLastName(),
                         contact.getAge()))
                 .collect(Collectors.toList());
     }

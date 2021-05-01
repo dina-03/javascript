@@ -20,7 +20,7 @@
                 <h4 style="color: darkgreen">Contacts</h4>
             </div>
 
-            <form class="col s12" action="/contacts/search" method="post">
+            <form class="col s12" id="search-form">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">blur_on</i>
@@ -28,11 +28,12 @@
                                placeholder="search"/>
                     </div>
                     <div class="input-field col s6">
-                        <button class="waves-effect waves-light btn" role="button" name="action"><i
-                                class="material-icons left">search</i>Search
-                        </button>&nbsp;
-                        <a href="/contacts/" class="waves-effect waves-light btn"><i
-                                class="material-icons right">refresh</i>Refresh</a>
+                        <button class="waves-effect waves-light btn" role="button" name="action" data-action="search">
+                            <i class="material-icons left">search</i>Search
+                        </button>
+                        <button class="waves-effect waves-light btn" data-action="refresh">
+                            <i class="material-icons right">refresh</i>Refresh
+                        </button>
                     </div>
                 </div>
             </form>
@@ -61,7 +62,7 @@
                        placeholder="last name"/>
             </div>
             <div class="input-field col s3">
-                <input type="number" class="materialize-textarea" name="age" min="16" max="120" step="1"
+                <input type="text" class="materialize-textarea" name="age"
                        placeholder="age"/>
             </div>
         </form>
@@ -105,30 +106,24 @@
         <i class="material-icons waves-light red-text">delete</i>
     </a>
     <a class="secondary-content" data-action="edit">
-        <i class="material-icons teal-text">edit</i>&nbsp;&nbsp;&nbsp;
+        <i class="material-icons teal-text">edit</i>
     </a>
-    <!--Contact details -->
-    <ul class="collection-item hide contact-item" id="contact-details">
-        <li class="contact-item">
-            <i>Name: </i>
-            <a class="badge" data-action="toggleDetails">
-                <span style="color: darkcyan" data-id="name">name</span></a>
 
+    <ul class="collection hide contact-details">
+        <li class="collection-item ">
+            <div><strong>Name:</strong><span style="color: darkcyan" class="secondary-content black-text name-value">- </span>
+            </div>
         </li>
-        <li class="contact-item">
-            <i>Lastname: </i>
-            <a class="badge" data-action="toggleDetails">
-                <span style="color: darkcyan" data-id="lastName">lastname</span></a>
+        <li class="collection-item ">
+            <div><strong>Last Name:</strong><span style="color: darkcyan" class="secondary-content black-text lastName-value">- </span>
+            </div>
         </li>
-        <li class="contact-item">
-            <i>Age: </i>
-            <a class="badge" data-action="toggleDetails">
-                <span style="color: darkcyan" data-id="age">age</span></a>
+        <li class="collection-item ">
+            <div><strong>Age:</strong><span style="color: darkcyan" class="secondary-content black-text age-value">- </span>
+            </div>
         </li>
     </ul>
-
 </li>
-
 
 </body>
 </html>
